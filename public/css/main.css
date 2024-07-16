@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+Tokumin:wght@400;500;700&family=Poppins:wght@300;400;500&display=swap');
+
+:root {
+    --lg-font: 'Kaisei Tokumin', serif;
+    --sm-font: 'Poppins', sans-serif;
+    --pink: #e5345b;
+}
+
+body {
+    font-family: var(--sm-font);
+}
+
+/* button */
+.btn-primary {
+    border: 1px solid var(--pink) !important;
+    background-color: #e73d62 !important;
+    color: #fff !important;
+
+}
+.bg-primary {
+    background-color: var(--pink) !important;
+}
+
+/* text color */
+.text-primary {
+    color: var(--pink) !important;
+}
+
+.active-pagination {
+    background-color: var(--pink) !important;
+    color: #fff !important;
+}
+
+.page-link:hover {
+    background-color: var(--pink) !important;
+    color: #fff !important;
+}
+
+/* navbar */
+.nav-link:hover {
+    color: var(--pink) !important;
+}
+
+.dropdown-item:hover {
+    color: var(--pink) !important;
+}
+
+/* title */
+.title h2::before {
+    position: absolute;
+    content: "";
+    width: 4px;
+    height: 50px;
+    background-color: var(--pink);
+    left: -20px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+/* san pham moi nhat */
+.collection-img span {
+    top: 20px;
+    right: 20px;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+}
+
+.text-product:hover {
+    color: var(--pink) !important;
+}
+
+/* footer */
+footer .brand {
+    font-family: var(--lg-font);
+    letter-spacing: 2px;
+}
+
+footer a {
+    -webkit-transition: color 0.3s ease;
+    -o-transition: color 0.3s ease;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--pink) !important;
+}
+
+
+/* login + register */
+.text-login {
+    color: var(--pink) !important;
+    text-decoration: none;
+}
+
+.text-login:hover {
+    color: black !important;
+}
+
+.btn-hover:hover {
+    border: 1px solid var(--pink) !important;
+    background-color: #fff !important;
+    color: var(--pink) !important;
+}
+
+/* product_details */
+.buy-now:hover {
+    background-color: var(--pink) !important;
+    color: #fff !important;
+}
+
+.add-cart:hover {
+    border: 1px solid var(--pink) !important;
+    background-color: #e73d62 !important;
+    color: #fff !important;
+}
+
+.btn-buy-hover:hover {
+    border: 1px solid var(--pink) !important;
+    background-color: #fff !important;
+    color: var(--pink) !important;
+}
+
+/* cart */
