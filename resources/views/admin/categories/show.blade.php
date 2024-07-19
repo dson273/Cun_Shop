@@ -1,26 +1,18 @@
 @extends('admin.layouts.master')
 
-@section('content')
-<!-- Khu vực tiêu đề trang -->
-<h3 class="text-center">CHI TIẾT DANH MỤC</h3>
+@section('title')
+    Chi tiết danh mục
+@endsection
 
-<!-- Khu vực form nhập liệu -->
-<form action="">
-    <div class="mt-3">
-        <lable class="form-label">ID:</lable>
-        <input class="form-control" type="text" name="" id="" ng-model="category.id" disabled>
-    </div>
-    <div class="mt-3">
-        <lable class="form-label">Tên danh mục:</lable>
-        <input class="form-control" type="text" name="" id="" ng-model="category.name" disabled>
-    </div>
-    <div class="mt-3">
-        <lable class="form-label">Hình ảnh:</lable>
-        <input class="form-control" type="text" name="" id="" ng-model="category.img" disabled>
-    </div>
-    <div class="text-center mt-4">
-        <a href="#!list-category" class="btn btn-secondary me-2">Quay lại</a>
-        <a href="#!edit-category" class="btn btn-warning me-2">Chỉnh Sửa</a>
-    </div>
-</form>
+@section('content')
+    <ul>
+        <li>ID: {{$category->id}}</li>
+        <li>Tên: {{$category->name}}</li>
+        <li>Ảnh:
+            <div style="width: 100px; height: 100px;">
+                <img src="{{$category->cover}}" style="max-width: 100%; max-height: 100%;" alt="">
+            </div>
+        </li>
+        <li>Trạng thái: {{$category->status}}</li>
+    </ul>
 @endsection

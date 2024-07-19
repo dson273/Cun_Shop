@@ -2,66 +2,99 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản Trị</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/fontawesome.min.css"></script>
-    <link rel="stylesheet" href="/css/main.css">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Dashboard</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="{{ asset('theme/admin/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="{{ asset('theme/admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
+
+    @yield('style-libs')
 
 </head>
 
-<body ng-app="myApp">
-    <!-- Khu vực header -->
-    <nav class="navbar navbar-expand-sm bg-light shadow">
+<body id="page-top">
 
-        <div class="container-fluid">
-            <!-- Links -->
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="" href="#">
-                        <img style="height: 50px;" src="/img/logo.png" alt="">
-                    </a>
-                </li>
-            </ul>
-            <!-- Links -->
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Xin chào "admin"</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Đăng xuất</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <!-- Page Wrapper -->
+    <div id="wrapper">
 
-    <!-- Khu vực nội dung -->
-    <div class="d-flex">
-        <!-- Bên trái: menu -->
-        <div class="bg-light" style="width: 300px; height: calc(100vh - 66px)">
-            <ul class="nav flex-column mt-3">
-                <li class="nav-item">
-                  <a class="nav-link text-dark text-hover" href="#!list-product">Quản lý sản phẩm</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-dark text-hover" href="#!list-category">Quản lý danh mục</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-dark text-hover" href="#!list-oder">Quản lý đơn hàng</a>
-                </li>
-              </ul>
+        <!-- Sidebar -->
+        @include('admin.layouts.sidebar')
+        <!-- End of Sidebar -->
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <!-- Topbar -->
+                @include('admin.layouts.header')
+                <!-- End of Topbar -->
+                @yield('content')
+            </div>
+            <!-- Footer -->
+            @include('admin.layouts.footer')
+            <!-- End of Footer -->
+
         </div>
-        <!-- Bên phải: nội dung -->
-        <div class="" style="width: calc(100% - 330px);">
-            <div class="container mt-3 ms-3">
-                <div>
-                    @yield('content')
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="{{ asset('theme/admin/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('theme/admin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="{{ asset('theme/admin/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="{{ asset('theme/admin/js/sb-admin-2.min.js') }}"></script>
+
+    <!-- Page level plugins -->
+    <script src="{{ asset('theme/admin/vendor/chart.js/Chart.min.js') }}"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="{{ asset('theme/admin/js/demo/chart-area-demo.js') }}"></script>
+    <script src="{{ asset('theme/admin/js/demo/chart-pie-demo.js') }}"></script>
+    <script src="https://kit.fontawesome.com/be9ed8669f.js" crossorigin="anonymous"></script>
+
+    @yield('script-libs')
+
 </body>
 
 </html>

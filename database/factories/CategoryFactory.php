@@ -17,8 +17,7 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->text(15),
-            'cover' => 'https://tokyolife.vn/_next/image?url=https%3A%2F%2Fpm2ec.s3.ap-southeast-1.amazonaws.com%2Fcms%2F17103857940634960_512.jpg&w=1920&q=75'
+            'name' => fake()->text(15)
         ];
     }
 }
