@@ -27,7 +27,7 @@
                                                         src="{{ Storage::url($details['image']) }}" alt="">
                                                 </div>
                                                 <div class="ms-3">
-                                                    <a href="product_details.html"
+                                                    <a href="#"
                                                         class="text-dark text-product text-decoration-none">{{ $details['name'] }}</a><br>
                                                     <!-- <span class="">Đen / S</span> -->
                                                 </div>

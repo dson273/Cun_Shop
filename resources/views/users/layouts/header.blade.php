@@ -14,10 +14,10 @@
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link me-3 fw-light" href="#">Đăng ký</a>
+                    <a class="nav-link me-3 fw-light" href="{{route('view.register')}}">Đăng ký</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link fw-light" href="#">Đăng nhập</a>
+                    <a class="nav-link fw-light" href="{{route('view.login')}}">Đăng nhập</a>
                 </li>
             </ul>
             {{-- <ul class="navbar-nav">

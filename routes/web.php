@@ -15,13 +15,13 @@ use App\Http\Controllers\ViewController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ViewController::class, 'index']);
 
-Route::get('/view', [ViewController::class,'index'])->name('view.index');
+Route::get('/home', [ViewController::class,'index'])->name('view.index');
 Route::get('/view-detail/{product}', [ViewController::class,'detail'])->name('view-detail.detail');
-Route::get('/view-cate', [ViewController::class,'cate'])->name('view-cate.cate');
+Route::get('/cate', [ViewController::class, 'cate'])->name('view-cate.cate');
+Route::get('/login', [ViewController::class, 'login'])->name('view.login');
+Route::get('/register', [ViewController::class, 'register'])->name('view.register');
 
 Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view');
 Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');

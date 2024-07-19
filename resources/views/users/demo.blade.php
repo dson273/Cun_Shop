@@ -57,9 +57,7 @@
                 <!-- category top -->
                 <div class="bg-light py-2 px-3 rounded-2 d-flex justify-content-between align-items-center">
                     <div>
-                        <h4 class="fw-normal mt-2">
-                            {{ $currentCategory ? $currentCategory->name : 'Tất cả sản phẩm' }}
-                        </h4>
+                        <h4 class="fw-normal mt-2">Tất cả sản phẩm</h4>
                     </div>
 
                     <div class="d-flex align-items-center justify-content-center">
@@ -80,14 +78,14 @@
                     @foreach ($products as $product)
                         <div class="col-md-4 mt-3">
                             <div class="collection-img position-relative">
-                                <a href="{{ route('view-detail.detail', $product) }}">
+                                <a href="#">
                                     <img style="max-height: 308px;" src="{{ Storage::url($product->image) }}"
                                         class="w-100 h-100 object-fit-cover ">
                                 </a>
                             </div>
                             <div class="mt-3">
                                 <div style="height: 47px;">
-                                    <a href="{{ route('view-detail.detail', $product) }}" class="text-capitalize text-decoration-none text-product text-dark">{{ $product->name }}</a>
+                                    <a href="#" class="text-capitalize text-decoration-none text-product text-dark">{{ $product->name }}</a>
                                 </div>
                                 <div>
                                     <span class="fw-bold text-primary">{{ number_format($product->price_sale, 0, ',', '.') }}₫</span>

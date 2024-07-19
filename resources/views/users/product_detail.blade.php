@@ -15,8 +15,8 @@
                         <span class="px-3">|</span> Tình trạng: <span class="text-primary">Còn hàng</span>
                     </p>
                     <div class="d-flex align-items-center ">
-                        <p class="fw-bold text-primary fs-5">{{ $product->price_sale }}₫</p>
-                        <p class="mx-3 compare-price text-decoration-line-through text-secondary ">{{ $product->price }}₫
+                        <p class="fw-bold text-primary fs-5">{{number_format($product->price_sale, 0, ',', '.')}}₫</p>
+                        <p class="mx-3 compare-price text-decoration-line-through text-secondary ">{{number_format($product->price, 0, ',', '.')}}₫
                         </p>
                     </div>
 
@@ -60,7 +60,7 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-between ">
-                            <a href="{{ route('view-pay.pay') }}">
+                            <a href="">
                                 <button style="height: 50px;min-width: 330px; border: 1px solid #e5345b;"
                                     class="rounded bg-white buy-now text-decoration-none text-primary">
                                     Mua ngay

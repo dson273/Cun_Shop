@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row text-white g-4">
             <div class="col-md-6 col-lg-3">
-                <a class="text-uppercase text-decoration-none brand text-white" href="index.html">Cunz Style</a>
+                <a class="text-uppercase text-decoration-none brand text-white" href="{{route('view.index')}}">Cunz Style</a>
                 <p class="text-secondary  mt-3">Thương hiệu thời trang của người trẻ hiện đại! Ra đời vào năm 2016,
                     CUNZSTYLE luôn nỗ lực với sứ mệnh tạo nên xu hướng thời trang mang đến sự tin tưởng và năng
                     lượng tích cực cho khách hàng</p>
@@ -12,17 +12,17 @@
                 <h5 class="fw-light">Links</h5>
                 <ul class="list-unstyled">
                     <li class="my-2">
-                        <a href="#!view-home" class="text-secondary text-decoration-none">
+                        <a href="#" class="text-secondary text-decoration-none">
                             <i class="fas fa-chevron-right me-1"></i> Trang chủ
                         </a>
                     </li>
                     <li class="my-2">
-                        <a href="#!gioithieu" class="text-secondary text-decoration-none ">
+                        <a href="#" class="text-secondary text-decoration-none ">
                             <i class="fas fa-chevron-right me-1"></i> Giới thiệu
                         </a>
                     </li>
                     <li class="my-2">
-                        <a href="#!view-category" class="text-secondary text-decoration-none ">
+                        <a href="#" class="text-secondary text-decoration-none ">
                             <i class="fas fa-chevron-right me-1"></i> Sản phẩm
                         </a>
                     </li>
