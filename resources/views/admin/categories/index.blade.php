@@ -38,7 +38,7 @@
                                 <th>Tên</th>
                                 <th>Ảnh</th>
                                 <th>Trạng thái</th>
-                                <th>Hành động</th>
+                                <th style="width:150px">Hành động</th>
                             </tr>
                         </thead>
                         <tfoot>
@@ -47,7 +47,7 @@
                                 <th>Tên</th>
                                 <th>Ảnh</th>
                                 <th>Trạng thái</th>
-                                <th>Hành động</th>
+                                <th style="width:150px">Hành động</th>
                             </tr>
                         </tfoot>
                         <tbody>
@@ -66,21 +66,20 @@
                                             ? '<span class="badge bg-success"> Hoạt động </span>'
                                             : ' <span class="badge bg-danger"> Không hoạt động </span>' !!}
                                     </td>
-                                    <td style="width: 1px;" class="text-nowrap">
-                                        <a href="{{ route('admin.categories.show', $item) }}">
-                                            <button class="btn btn-info btn-sm">Xem</button>
-                                        </a>
-                                        <a href="{{ route('admin.categories.edit', $item) }}">
-                                            <button class="btn btn-warning btn-sm">Sửa</button>
-                                        </a>
-                                        <div>
+                                    <td>
+                                        <div class="d-flex justify-content-around" style="width:150px">
+                                            <a href="{{ route('admin.categories.show', $item) }}">
+                                                <button class="btn btn-info btn-sm">Xem</button>
+                                            </a>
+                                            <a href="{{ route('admin.categories.edit', $item) }}">
+                                                <button class="btn btn-warning btn-sm">Sửa</button>
+                                            </a>
                                             <form action="{{ route('admin.categories.destroy', $item) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger btn-sm">Xóa</button>
                                             </form>
                                         </div>
-
                                     </td>
                                 </tr>
                             @endforeach

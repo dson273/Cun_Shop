@@ -59,6 +59,14 @@
         </div>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="{{route('view.index')}}"
+           aria-expanded="true" aria-controls="collapsePages">
+           <i class="fa-solid fa-house"></i>
+            <span>Trang Chủ</span>
+        </a>
+    </li>
+
     {{-- <!-- Divider -->
     <hr class="sidebar-divider">
 

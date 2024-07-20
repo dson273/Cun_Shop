@@ -19,7 +19,7 @@
                     <label for="" class="form-label">Ảnh</label>
                     <input type="file" name="image" class="form-control">
                     @if (!empty($product->image))
-                        <div style="width: 100px; height:100px">
+                        <div class="mt-3" style="width: 100px; height:100px">
                             <img src="{{ Storage::url($product->image) }}" alt=""
                                 style="max-height:100%; max-width:100%">
                         </div>

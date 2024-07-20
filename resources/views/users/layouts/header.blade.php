@@ -13,11 +13,14 @@
                 </li>
             </ul>
             <ul class="navbar-nav">
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link me-3 fw-light" href="{{route('view.register')}}">Đăng ký</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link fw-light" href="{{route('view.login')}}">Đăng nhập</a>
+                </li> --}}
+                <li class="nav-item">
+                    <a class="nav-link fw-light" href="{{route('admin.dashboard')}}">Admin</a>
                 </li>
             </ul>
             {{-- <ul class="navbar-nav">
