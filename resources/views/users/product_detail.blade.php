@@ -60,7 +60,7 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-between ">
-                            <a href="">
+                            <a href="#">
                                 <button style="height: 50px;min-width: 330px; border: 1px solid #e5345b;"
                                     class="rounded bg-white buy-now text-decoration-none text-primary">
                                     Mua ngay
