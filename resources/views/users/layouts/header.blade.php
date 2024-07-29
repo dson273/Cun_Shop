@@ -14,14 +14,39 @@
             </ul>
             <ul class="navbar-nav">
                 {{-- <li class="nav-item">
-                    <a class="nav-link me-3 fw-light" href="{{route('view.register')}}">Đăng ký</a>
+                    <a class="nav-link me-3 fw-light" href="{{ route('view.register') }}">Đăng ký</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link fw-light" href="{{route('view.login')}}">Đăng nhập</a>
+                    <a class="nav-link fw-light" href="{{ route('view.login') }}">Đăng nhập</a>
                 </li> --}}
-                <li class="nav-item">
+                @guest
+                    @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link fw-light" href="{{ route('register') }}">{{ __('Đăng ký') }}</a>
+                        </li>
+                    @endif
+                    @if (Route::has('login'))
+                        <li class="nav-item">
+                            <a class="nav-link me-3 fw-light" href="{{ route('login') }}">{{ __('Đăng nhập') }}</a>
+                        </li>
+                    @endif
+                @else
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle fw-light" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }}
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item fw-light" href="{{ route('logout') }}">
+                                {{ __('Đăng xuất') }}
+                            </a>
+                        </div>
+                    </li>
+                @endguest
+                {{-- <li class="nav-item">
                     <a class="nav-link fw-light" href="{{route('admin.dashboard')}}">Admin</a>
-                </li>
+                </li> --}}
             </ul>
             {{-- <ul class="navbar-nav">
                 <li class="nav-item">
@@ -37,8 +62,9 @@
     <!-- navbar 2-->
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container">
-            <a class="navbar-brand d-flex justify-content-between align-items-center order-lg-0" href="{{route('view.index')}}">
-                <img class="img-fluid" src="{{asset('img/logo.png')}}" width="150" alt="">
+            <a class="navbar-brand d-flex justify-content-between align-items-center order-lg-0"
+                href="{{ route('view.index') }}">
+                <img class="img-fluid" src="{{ asset('img/logo.png') }}" width="150" alt="">
             </a>
 
             <div class="order-lg-2 nav-btns">
@@ -50,22 +76,23 @@
                     <span style="top:5px;right: -10px;"
                         class="position-absolute translate-middle badge bg-danger rounded-pill">0</span>
                 </a>
-                <a href="{{route('cart.view')}}" class="btn position-relative">
+                <a href="{{ route('cart.view') }}" class="btn position-relative">
                     <i class="fa fa-shopping-cart fa-xl"></i>
                     <span style="top:5px;right: -10px;"
-                        class="position-absolute translate-middle badge bg-danger rounded-pill"> {{ session('cart') ? count(session('cart', [])) : 0 }}</span>
+                        class="position-absolute translate-middle badge bg-danger rounded-pill">
+                        {{ session('cart') ? count(session('cart', [])) : 0 }}</span>
                 </a>
             </div>
             <div class="collapse navbar-collapse order-lg-1" id="navMenu">
                 <ul class="navbar-nav mx-auto text-center">
                     <li class="nav-item px-2 py-2">
-                        <a class="nav-link text-uppercase text-dark" href="{{route('view.index')}}">Trang Chủ </a>
+                        <a class="nav-link text-uppercase text-dark" href="{{ route('view.index') }}">Trang Chủ </a>
                     </li>
                     <li class="nav-item px-2 py-2">
                         <a class="nav-link text-uppercase text-dark" href="#gioithieu">Giới thiệu</a>
                     </li>
                     <li class="nav-item px-2 py-2">
-                        <a class="nav-link text-uppercase text-dark" href="{{route('view-cate.cate')}}">Sản phẩm</a>
+                        <a class="nav-link text-uppercase text-dark" href="{{ route('view-cate.cate') }}">Sản phẩm</a>
                     </li>
                     <li class="nav-item px-2 py-2">
                         <a class="nav-link text-uppercase text-dark" href="#tintuc">Tin tức</a>

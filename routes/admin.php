@@ -17,7 +17,7 @@ use App\Http\Controllers\Admin\ProductController;
 
 
 
-Route::prefix('admin')->as('admin.')->group(function(){
+Route::prefix('admin')->as('admin.')->middleware('isAdmin')->group(function(){
     Route::get('/', function(){
         return view('admin.dashboard');
     })->name('dashboard');
