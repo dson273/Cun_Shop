@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -15,7 +16,8 @@ class ViewController extends Controller
         $saleProducts = $data->filter(function ($product) {
             return $product->price_sale > 0;
         });
-        return view('users.index', compact('data', 'saleProducts'));
+        $banners = Banner::all();
+        return view('users.index', compact('data', 'saleProducts', 'banners'));
     }
 
     public function detail(Product $product)

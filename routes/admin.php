@@ -30,7 +30,7 @@ Route::prefix('admin')->as('admin.')->middleware('isAdmin')->group(function () {
     Route::resource('products', ProductController::class);
     // Quản lý khuyến mại
     Route::resource('promotions', PromotionController::class);
-    // Quản lý banner marketing
+    // Quản lý banner
     Route::resource('banners', BannerController::class);
     // Quản lý hóa đơn
     Route::resource('invoices', InvoiceController::class);

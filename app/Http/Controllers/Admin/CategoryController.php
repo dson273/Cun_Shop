@@ -91,6 +91,10 @@ class CategoryController extends Controller
     {
         //
         $category->delete();
+        //Xoá ảnh cũ
+        if (!empty($category->image) && Storage::exists($category->image)) {
+            Storage::delete($category->image);
+        }
         return back()->with('message', 'Xóa thành công');
     }
 }

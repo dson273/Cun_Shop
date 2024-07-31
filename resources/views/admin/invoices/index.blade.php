@@ -49,7 +49,7 @@
                                         <form action="{{ route('admin.invoices.sendEmail', $order->id) }}" method="POST"
                                             style="display:inline;">
                                             @csrf
-                                            <button type="submit" class="btn btn-primary">Gửi Email</button>
+                                            <button type="submit" class="btn btn-primary">Gửi hoá đơn</button>
                                         </form>
                                     </td>
                                 </tr>

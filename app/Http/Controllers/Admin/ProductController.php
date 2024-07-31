@@ -93,6 +93,6 @@ class ProductController extends Controller
         if (!empty($product->image) && Storage::exists($product->image)) {
             Storage::delete($product->image);
         }
-        return back();
+        return back()->with('message', 'Xóa thành công');;
     }
 }

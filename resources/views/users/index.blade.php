@@ -6,23 +6,18 @@
     <div class="slide">
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
+                @foreach ($banners as $index => $banner)
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ $index }}"
+                        class="{{ $index == 0 ? 'active' : '' }}" aria-current="true"
+                        aria-label="Slide {{ $index + 1 }}"></button>
+                @endforeach
             </div>
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{{ asset('img/slider_1.webp') }}" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="{{ asset('img/slider_2.webp') }}" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="{{ asset('img/slider_3.webp') }}" class="d-block w-100" alt="...">
-                </div>
+                @foreach ($banners as $banner)
+                    <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                        <img src="{{ Storage::url($banner->image) }}" class="d-block w-100" alt="{{ $banner->title }}">
+                    </div>
+                @endforeach
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
                 data-bs-slide="prev">
@@ -65,7 +60,7 @@
                                 <span
                                     class="fw-bold text-primary">{{ number_format($item->price_sale, 0, ',', '.') ?: number_format($item->price, 0, ',', '.') }}₫</span>
                                 <span
-                                    class="mx-2 compare-price text-decoration-line-through text-secondary fw-light">{{ number_format($item->price_sale, 0, ',', '.') ? number_format($item->price, 0, ',', '.').'₫' : '' }}</span>
+                                    class="mx-2 compare-price text-decoration-line-through text-secondary fw-light">{{ number_format($item->price_sale, 0, ',', '.') ? number_format($item->price, 0, ',', '.') . '₫' : '' }}</span>
                             </div>
                         </div>
                     </div>
@@ -96,9 +91,9 @@
                             </div>
                             <div>
                                 <span
-                                class="fw-bold text-primary">{{ number_format($item->price_sale, 0, ',', '.') ?: number_format($item->price, 0, ',', '.') }}₫</span>
-                            <span
-                                class="mx-2 compare-price text-decoration-line-through text-secondary fw-light">{{ number_format($item->price_sale, 0, ',', '.') ? number_format($item->price, 0, ',', '.').'₫' : '' }}</span>
+                                    class="fw-bold text-primary">{{ number_format($item->price_sale, 0, ',', '.') ?: number_format($item->price, 0, ',', '.') }}₫</span>
+                                <span
+                                    class="mx-2 compare-price text-decoration-line-through text-secondary fw-light">{{ number_format($item->price_sale, 0, ',', '.') ? number_format($item->price, 0, ',', '.') . '₫' : '' }}</span>
                             </div>
 
                         </div>

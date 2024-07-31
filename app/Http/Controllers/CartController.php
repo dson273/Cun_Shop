@@ -18,14 +18,15 @@ class CartController extends Controller
     public function addToCart(Request $request, $productId)
     {
         $product = Product::findOrFail($productId);
+        $quantity = $request->input('quantity', 1);
         $cart = session()->get('cart', []);
 
         if (isset($cart[$productId])) {
-            $cart[$productId]['quantity']++;
+            $cart[$productId]['quantity'] += $quantity;
         } else {
             $cart[$productId] = [
                 "name" => $product->name,
-                "quantity" => 1,
+                "quantity" => $quantity,
                 "price" => $product->price,
                 "price_sale" => $product->price_sale,
                 "image" => $product->image

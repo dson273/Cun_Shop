@@ -88,6 +88,21 @@
         </div>
     </li>
 
+    {{-- Quản lý banner --}}
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBanners"
+            aria-expanded="true" aria-controls="collapseBanners">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>Quản lý banner</span>
+        </a>
+        <div id="collapseBanners" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Danh sách chức năng</h6>
+                <a class="collapse-item" href="{{ route('admin.banners.index') }}">Danh sách</a>
+            </div>
+        </div>
+    </li>
+
     <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('view.index') }}" aria-expanded="true"
             aria-controls="collapsePages">

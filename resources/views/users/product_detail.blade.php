@@ -15,9 +15,11 @@
                         <span class="px-3">|</span> Tình trạng: <span class="text-primary">Còn hàng</span>
                     </p>
                     <div class="d-flex align-items-center ">
-                        <p class="fw-bold text-primary fs-5">{{ number_format($product->price_sale, 0, ',', '.') ?: number_format($product->price, 0, ',', '.') }}₫</p>
+                        <p class="fw-bold text-primary fs-5">
+                            {{ number_format($product->price_sale, 0, ',', '.') ?: number_format($product->price, 0, ',', '.') }}₫
+                        </p>
                         <p class="mx-3 compare-price text-decoration-line-through text-secondary ">
-                            {{ number_format($product->price_sale, 0, ',', '.') ? number_format($product->price, 0, ',', '.').'₫' : '' }}
+                            {{ number_format($product->price_sale, 0, ',', '.') ? number_format($product->price, 0, ',', '.') . '₫' : '' }}
                         </p>
                     </div>
 
@@ -53,11 +55,11 @@
                             <div class="mt-3">Số lượng:</div>
                             <div style="height: 50px;" class="mt-2 mb-2 border rounded w-25 d-flex justify-content-around ">
                                 <!-- Nút để giảm số lượng sản phẩm -->
-                                <button class="border-0 bg-white"><i class="fa-solid fa-minus"></i></button>
+                                <button id="decrease" class="border-0 bg-white"><i class="fa-solid fa-minus"></i></button>
                                 <!-- Hiển thị số lượng sản phẩm -->
-                                <button class="border-0 bg-white">1</button>
+                                <button id="quantity" class="border-0 bg-white">1</button>
                                 <!-- Nút để tăng số lượng sản phẩm -->
-                                <button class="border-0 bg-white"><i class="fa-solid fa-plus"></i></button>
+                                <button id="increase" class="border-0 bg-white"><i class="fa-solid fa-plus"></i></button>
                             </div>
                         </div>
                         <div class="d-flex justify-content-between ">
@@ -82,15 +84,36 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#add-to-cart').click(function() {
+            let quantity = 1;
+
+            $('#decrease').click(function() {
+                if (quantity > 1) {
+                    quantity--;
+                    $('#quantity').text(quantity);
+                    $('#hidden-quantity').val(quantity);
+                }
+            });
+
+            $('#increase').click(function() {
+                quantity++;
+                $('#quantity').text(quantity);
+                $('#hidden-quantity').val(quantity);
+            });
+
+            $('#add-to-cart').click(function(e) {
+                e.preventDefault();
                 $.ajax({
                     url: '{{ route('cart.add', $product->id) }}',
                     method: 'POST',
                     data: {
-                        _token: '{{ csrf_token() }}'
+                        _token: '{{ csrf_token() }}',
+                        quantity: quantity
                     },
                     success: function(response) {
-                        alert('Thêm thành công');
+                        alert('Sản phẩm đã được thêm vào giỏ hàng');
+                    },
+                    error: function(xhr) {
+                        alert('Có lỗi xảy ra, vui lòng thử lại!');
                     }
                 });
             });
