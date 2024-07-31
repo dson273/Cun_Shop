@@ -99,6 +99,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Danh sách chức năng</h6>
                 <a class="collapse-item" href="{{ route('admin.banners.index') }}">Danh sách</a>
+                <a class="collapse-item" href="{{ route('admin.banners.create') }}">Thêm</a>
             </div>
         </div>
     </li>

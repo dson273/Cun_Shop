@@ -9,7 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Cunz-Style Dashboard</title>
+    <link rel="shortcut icon" href="{{ asset('img/logow.png') }}" type="img/png">
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('theme/admin/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">

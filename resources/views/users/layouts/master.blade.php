@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cun Style</title>
+    <title>Cunz-Style</title>
     <link rel="shortcut icon" href="{{ asset('img/logow.png') }}" type="img/png">
     <link rel="stylesheet" href="{{ asset('lib/bootstrap.css') }}">
     <script src="{{ asset('lib/bootstrap.js') }}"></script>
