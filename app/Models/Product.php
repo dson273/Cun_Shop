@@ -27,4 +27,17 @@ class Product extends Model
     public function category(){
         return $this->belongsTo(Category::class);
     }
+
+    public function promotions()
+    {
+        return $this->belongsToMany(Promotion::class);
+    }
+
+    public function scopeWithPromotions($query)
+    {
+        return $query->whereHas('promotions', function($q) {
+            $q->where('start_date', '<=', now())
+              ->where('end_date', '>=', now());
+        });
+    }
 }

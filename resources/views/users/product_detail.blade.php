@@ -15,8 +15,9 @@
                         <span class="px-3">|</span> Tình trạng: <span class="text-primary">Còn hàng</span>
                     </p>
                     <div class="d-flex align-items-center ">
-                        <p class="fw-bold text-primary fs-5">{{number_format($product->price_sale, 0, ',', '.')}}₫</p>
-                        <p class="mx-3 compare-price text-decoration-line-through text-secondary ">{{number_format($product->price, 0, ',', '.')}}₫
+                        <p class="fw-bold text-primary fs-5">{{ number_format($product->price_sale, 0, ',', '.') ?: number_format($product->price, 0, ',', '.') }}₫</p>
+                        <p class="mx-3 compare-price text-decoration-line-through text-secondary ">
+                            {{ number_format($product->price_sale, 0, ',', '.') ? number_format($product->price, 0, ',', '.').'₫' : '' }}
                         </p>
                     </div>
 

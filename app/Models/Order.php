@@ -19,7 +19,7 @@ class Order extends Model
         'total'
     ];
 
-    public function items()
+    public function Order_items()
     {
         return $this->hasMany(Order_item::class);
     }

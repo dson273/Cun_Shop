@@ -15,7 +15,6 @@ class CartController extends Controller
         return view('users.cart.index', compact('cart'));
     }
 
-
     public function addToCart(Request $request, $productId)
     {
         $product = Product::findOrFail($productId);
@@ -27,6 +26,7 @@ class CartController extends Controller
             $cart[$productId] = [
                 "name" => $product->name,
                 "quantity" => 1,
+                "price" => $product->price,
                 "price_sale" => $product->price_sale,
                 "image" => $product->image
             ];
@@ -35,6 +35,7 @@ class CartController extends Controller
         session()->put('cart', $cart);
         return redirect()->back()->with('success', 'Sản phẩm đã được thêm vào giỏ hàng!');
     }
+
     public function removeFromCart($id)
     {
         $cart = session()->get('cart', []);
@@ -66,7 +67,6 @@ class CartController extends Controller
 
     public function placeOrder(Request $request)
     {
-        // Validate request data
         $request->validate([
             'name' => 'required|string|max:255',
             'phone' => 'required|numeric',
@@ -75,7 +75,6 @@ class CartController extends Controller
             'payment_method' => 'required|string|in:cash,online',
         ]);
 
-        // Create Order
         $order = Order::create([
             'name' => $request->name,
             'phone' => $request->phone,
@@ -85,28 +84,24 @@ class CartController extends Controller
             'payment_method' => $request->payment_method,
             'status' => 'pending',
             'total' => array_sum(array_map(function ($item) {
-                return $item['price_sale'] * $item['quantity'];
+                return $item['price_sale'] ? $item['price_sale'] * $item['quantity'] : $item['price'] * $item['quantity'];
             }, session('cart', []))),
         ]);
 
-        // Add Order Items
         foreach (session('cart', []) as $id => $details) {
             Order_item::create([
                 'order_id' => $order->id,
                 'product_id' => $id,
                 'name' => $details['name'],
-                'price' => $details['price_sale'],
+                'price' => $details['price_sale'] ?: $details['price'],
                 'quantity' => $details['quantity'],
-                'total' => $details['price_sale'] * $details['quantity'],
+                'total' => ($details['price_sale'] ?: $details['price']) * $details['quantity'],
             ]);
         }
 
-        // Clear cart
         session()->forget('cart');
-
         return redirect()->route('checkout.thankyou');
     }
-
     public function thankYou()
     {
         return view('users.cart.thankyou');

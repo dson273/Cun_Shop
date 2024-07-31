@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('admin.dashboard')}}">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin.dashboard') }}">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
@@ -13,7 +13,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="{{route('admin.dashboard')}}">
+        <a class="nav-link" href="{{ route('admin.dashboard') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -29,15 +29,15 @@
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-           aria-expanded="true" aria-controls="collapseTwo">
+            aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>
             <span>Quản lý danh mục</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Danh sách chức năng:</h6>
-                <a class="collapse-item" href="{{route('admin.categories.index')}}">Danh sách</a>
-                <a class="collapse-item" href="{{route('admin.categories.create')}}">Thêm</a>
+                <a class="collapse-item" href="{{ route('admin.categories.index') }}">Danh sách</a>
+                <a class="collapse-item" href="{{ route('admin.categories.create') }}">Thêm</a>
             </div>
         </div>
     </li>
@@ -45,24 +45,53 @@
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-           aria-expanded="true" aria-controls="collapseUtilities">
+            aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-wrench"></i>
             <span>Quản lý sản phẩm</span>
         </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-             data-parent="#accordionSidebar">
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Danh sách chức năng</h6>
-                <a class="collapse-item" href="{{route('admin.products.index')}}">Danh sách</a>
-                <a class="collapse-item" href="{{route('admin.products.create')}}">Thêm</a>
+                <a class="collapse-item" href="{{ route('admin.products.index') }}">Danh sách</a>
+                <a class="collapse-item" href="{{ route('admin.products.create') }}">Thêm</a>
+            </div>
+        </div>
+    </li>
+    {{-- Quản lý khuyến mãi --}}
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSales"
+            aria-expanded="true" aria-controls="collapseSales">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>Quản lý khuyến mãi</span>
+        </a>
+        <div id="collapseSales" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Danh sách chức năng</h6>
+                <a class="collapse-item" href="{{ route('admin.promotions.index') }}">Danh sách</a>
+                <a class="collapse-item" href="{{ route('admin.promotions.create') }}">Thêm</a>
+            </div>
+        </div>
+    </li>
+
+    {{-- Quản lý hoá đơn --}}
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrders"
+            aria-expanded="true" aria-controls="collapseOrders">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>Quản lý hoá đơn</span>
+        </a>
+        <div id="collapseOrders" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Danh sách chức năng</h6>
+                <a class="collapse-item" href="{{ route('admin.invoices.index') }}">Danh sách</a>
             </div>
         </div>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link collapsed" href="{{route('view.index')}}"
-           aria-expanded="true" aria-controls="collapsePages">
-           <i class="fa-solid fa-house"></i>
+        <a class="nav-link collapsed" href="{{ route('view.index') }}" aria-expanded="true"
+            aria-controls="collapsePages">
+            <i class="fa-solid fa-house"></i>
             <span>Trang Chủ</span>
         </a>
     </li>

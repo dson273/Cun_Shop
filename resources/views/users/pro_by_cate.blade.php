@@ -90,9 +90,9 @@
                                     <a href="{{ route('view-detail.detail', $product) }}" class="text-capitalize text-decoration-none text-product text-dark">{{ $product->name }}</a>
                                 </div>
                                 <div>
-                                    <span class="fw-bold text-primary">{{ number_format($product->price_sale, 0, ',', '.') }}₫</span>
+                                    <span class="fw-bold text-primary">{{ number_format($product->price_sale, 0, ',', '.') ?: number_format($product->price, 0, ',', '.') }}₫</span>
                                     <span
-                                        class="mx-2 compare-price text-decoration-line-through text-secondary fw-light">{{ number_format($product->price, 0, ',', '.') }}₫</span>
+                                        class="mx-2 compare-price text-decoration-line-through text-secondary fw-light">{{ number_format($product->price_sale, 0, ',', '.') ? number_format($product->price, 0, ',', '.').'₫' : '' }}</span>
                                 </div>
                             </div>
                         </div>

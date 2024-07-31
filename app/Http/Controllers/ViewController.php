@@ -11,7 +11,11 @@ class ViewController extends Controller
     public function index()
     {
         $data = Product::query()->get();
-        return view('users.index', compact('data'));
+        // Phân loại sản phẩm khuyến mãi và yêu thích
+        $saleProducts = $data->filter(function ($product) {
+            return $product->price_sale > 0;
+        });
+        return view('users.index', compact('data', 'saleProducts'));
     }
 
     public function detail(Product $product)
@@ -36,13 +40,5 @@ class ViewController extends Controller
         $products = $productsQuery->get(); // Lấy sản phẩm theo điều kiện
 
         return view('users.pro_by_cate', compact('categories', 'products', 'currentCategory'));
-    }
-
-    public function login(){
-        return view('users.login');
-    }
-
-    public function register(){
-        return view('users.register');
     }
 }

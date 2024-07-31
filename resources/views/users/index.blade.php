@@ -45,12 +45,12 @@
                 <h2 class="position-relative d-inline-block">SẢN PHẨM KHUYẾN MÃI</h2>
             </div>
             <div class="mt-4 mb-5 row gx-0 gy-3">
-                @foreach ($data as $item)
+                @foreach ($saleProducts as $item)
                     <!-- product new-->
                     <div class="col-md-6 col-lg-4 col-xl-3 p-2">
                         <div class="collection-img position-relative ">
                             <a href="{{ route('view-detail.detail', $item) }}">
-                                <img style="max-height: 308px;" src="{{Storage::url($item->image)}}"
+                                <img style="max-height: 308px;" src="{{ Storage::url($item->image) }}"
                                     class="w-100 h-100 object-fit-cover ">
                             </a>
                             <span
@@ -59,12 +59,13 @@
                         <div class="mt-3">
                             <div style="height: 47px;">
                                 <a href="{{ route('view-detail.detail', $item) }}"
-                                    class="text-capitalize text-decoration-none text-product text-dark ">{{$item->name}}</a>
+                                    class="text-capitalize text-decoration-none text-product text-dark ">{{ $item->name }}</a>
                             </div>
                             <div>
-                                <span class="fw-bold">{{number_format($item->price_sale, 0, ',', '.')}}₫</span>
                                 <span
-                                    class="mx-2 compare-price text-decoration-line-through text-secondary fw-light">{{number_format($item->price, 0, ',', '.')}}₫</span>
+                                    class="fw-bold text-primary">{{ number_format($item->price_sale, 0, ',', '.') ?: number_format($item->price, 0, ',', '.') }}₫</span>
+                                <span
+                                    class="mx-2 compare-price text-decoration-line-through text-secondary fw-light">{{ number_format($item->price_sale, 0, ',', '.') ? number_format($item->price, 0, ',', '.').'₫' : '' }}</span>
                             </div>
                         </div>
                     </div>
@@ -76,30 +77,32 @@
             </div>
             <div class="mt-4 mb-5 row gx-0 gy-3">
                 @foreach ($data as $item)
-
-                <!-- product favourite-->
-                <div class="col-md-6 col-lg-4 col-xl-3 p-2">
-                    <div class="collection-img position-relative">
-                        <a href="{{ route('view-detail.detail', $item) }}">
-                            <img style="max-height: 308px;" src="{{Storage::url($item->image)}}"
-                                class="w-100 h-100 object-fit-cover ">
-                        </a>
-                        <span class="position-absolute d-flex align-items-center justify-content-center text-primary fs-4">
-                            <i class="fas fa-heart"></i>
-                        </span>
-                    </div>
-                    <div class="mt-3">
-                        <div style="height: 47px;">
-                            <a href="{{ route('view-detail.detail', $item) }}" class="text-capitalize text-decoration-none text-product text-dark ">{{$item->name}}</a>
-                        </div>
-                        <div>
-                            <span class="fw-bold">{{number_format($item->price_sale, 0, ',', '.')}}₫</span>
+                    <!-- product favourite-->
+                    <div class="col-md-6 col-lg-4 col-xl-3 p-2">
+                        <div class="collection-img position-relative">
+                            <a href="{{ route('view-detail.detail', $item) }}">
+                                <img style="max-height: 308px;" src="{{ Storage::url($item->image) }}"
+                                    class="w-100 h-100 object-fit-cover ">
+                            </a>
                             <span
-                                class="mx-2 compare-price text-decoration-line-through text-secondary fw-light">{{number_format($item->price, 0, ',', '.')}}₫</span>
+                                class="position-absolute d-flex align-items-center justify-content-center text-primary fs-4">
+                                <i class="fas fa-heart"></i>
+                            </span>
                         </div>
+                        <div class="mt-3">
+                            <div style="height: 47px;">
+                                <a href="{{ route('view-detail.detail', $item) }}"
+                                    class="text-capitalize text-decoration-none text-product text-dark ">{{ $item->name }}</a>
+                            </div>
+                            <div>
+                                <span
+                                class="fw-bold text-primary">{{ number_format($item->price_sale, 0, ',', '.') ?: number_format($item->price, 0, ',', '.') }}₫</span>
+                            <span
+                                class="mx-2 compare-price text-decoration-line-through text-secondary fw-light">{{ number_format($item->price_sale, 0, ',', '.') ? number_format($item->price, 0, ',', '.').'₫' : '' }}</span>
+                            </div>
 
+                        </div>
                     </div>
-                </div>
                 @endforeach
                 <!-- End product favourite -->
             </div>

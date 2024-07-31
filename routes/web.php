@@ -17,12 +17,12 @@ use App\Http\Controllers\Auth\RegisterController;
 |
 */
 
-Route::get('/', [ViewController::class, 'index']);
+Route::get('/', [ViewController::class, 'index'])->name('view.index');
 
-Route::get('/home', [ViewController::class,'index'])->name('view.index');
 Route::get('/view-detail/{product}', [ViewController::class,'detail'])->name('view-detail.detail');
 Route::get('/cate', [ViewController::class, 'cate'])->name('view-cate.cate');
 
+Route::middleware('auth')->group(function () {
 Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view');
 Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
 Route::get('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
@@ -31,7 +31,7 @@ Route::post('/cart/update/{id}', [CartController::class, 'updateQuantity'])->nam
 Route::get('/checkout', [CartController::class, 'showCheckout'])->name('checkout.show');
 Route::post('/checkout', [CartController::class, 'placeOrder'])->name('checkout.placeOrder');
 Route::get('/thank-you', [CartController::class, 'thankYou'])->name('checkout.thankyou');
-
+});
 
 //đăng ký
 Route::get('auth/register', [RegisterController::class, 'index'])->name('register');
@@ -43,9 +43,4 @@ Route::get('auth/login', [LoginController::class, 'index'])->name('login');
 Route::post('auth/login', [LoginController::class, 'login'])->name('login');
 Route::get('auth/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::prefix('admin')->as('admin.')->middleware('isAdmin')->group(function(){
-    Route::get('/', function(){
-        return view('admin.dashboard');
-    })->name('dashboard');
-});
 
