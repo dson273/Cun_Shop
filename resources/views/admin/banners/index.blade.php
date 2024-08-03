@@ -46,12 +46,12 @@
                                     <td>{{ $banner->description }}</td>
                                     <td>
                                         <a href="{{ route('admin.banners.edit', $banner) }}"
-                                            class="btn btn-warning btn-sm">Edit</a>
+                                            class="btn btn-warning">Sửa</a>
                                         <form action="{{ route('admin.banners.destroy', $banner) }}" method="POST"
                                             style="display:inline;">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                            <button type="submit" class="btn btn-danger">Xoá</button>
                                         </form>
                                     </td>
                                 </tr>
