@@ -14,8 +14,8 @@
             </div>
             <div class="carousel-inner">
                 @foreach ($banners as $banner)
-                    <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                        <img src="{{ Storage::url($banner->image) }}" class="d-block w-100" alt="{{ $banner->title }}">
+                    <div style="height: 538px" class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                        <img style="height: 100%" src="{{ Storage::url($banner->image) }}" class="d-block w-100" alt="{{ $banner->title }}">
                     </div>
                 @endforeach
             </div>

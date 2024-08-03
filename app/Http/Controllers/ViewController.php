@@ -12,7 +12,7 @@ class ViewController extends Controller
     public function index()
     {
         $data = Product::query()->get();
-        // Phân loại sản phẩm khuyến mãi và yêu thích
+        // Phân loại sản phẩm khuyến mãi
         $saleProducts = $data->filter(function ($product) {
             return $product->price_sale > 0;
         });
