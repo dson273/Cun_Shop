@@ -43,8 +43,7 @@
                 </div>
                 <div class="mt-3 mb-3">
                     <label for="" class="form-label">Mô tả</label>
-                    <textarea name="description" id="" cols="40" rows="4" class="form-control"
-                        value="{{ $product->description }}"></textarea>
+                    <textarea name="description" id="" cols="40" rows="4" class="form-control">{{ $product->description }}</textarea>
                 </div>
                 <div class="mt-3 mb-3">
                     <label for="" class="form-label">Trạng thái</label>

@@ -22,6 +22,7 @@ Route::get('/', [ViewController::class, 'index'])->name('view.index');
 Route::get('/view-detail/{product}', [ViewController::class,'detail'])->name('view-detail.detail');
 Route::get('/cate', [ViewController::class, 'cate'])->name('view-cate.cate');
 
+
 Route::middleware('auth')->group(function () {
 Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view');
 Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
